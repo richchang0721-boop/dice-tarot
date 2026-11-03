@@ -1,0 +1,1562 @@
+[
+  {
+    "id": 0,
+    "name": "愚者",
+    "en": "The Fool",
+    "number": "0",
+    "suit": "大阿爾克那",
+    "upright": [
+      "新的開始",
+      "自由",
+      "信任"
+    ],
+    "reversed": [
+      "魯莽",
+      "遲疑",
+      "逃避"
+    ],
+    "meaning": "帶著好奇跨出第一步，為未知保留空間。",
+    "reverseMeaning": "檢查準備是否充分；自由也需要界線。",
+    "artwork": "File:RWS Tarot 00 Fool.jpg"
+  },
+  {
+    "id": 1,
+    "name": "魔術師",
+    "en": "The Magician",
+    "number": "I",
+    "suit": "大阿爾克那",
+    "upright": [
+      "行動",
+      "資源",
+      "創造"
+    ],
+    "reversed": [
+      "操控",
+      "分心",
+      "空想"
+    ],
+    "meaning": "整合手邊資源，讓想法成為具體行動。",
+    "reverseMeaning": "留意言行落差，先完成一個可行步驟。",
+    "artwork": "File:RWS Tarot 01 Magician.jpg"
+  },
+  {
+    "id": 2,
+    "name": "女祭司",
+    "en": "The High Priestess",
+    "number": "II",
+    "suit": "大阿爾克那",
+    "upright": [
+      "直覺",
+      "靜觀",
+      "潛意識"
+    ],
+    "reversed": [
+      "隱瞞",
+      "雜音",
+      "疏離"
+    ],
+    "meaning": "暫緩判斷，聆聽安靜時浮現的感受。",
+    "reverseMeaning": "辨認直覺與焦慮，確認尚未說清的資訊。",
+    "artwork": "File:RWS Tarot 02 High Priestess.jpg"
+  },
+  {
+    "id": 3,
+    "name": "皇后",
+    "en": "The Empress",
+    "number": "III",
+    "suit": "大阿爾克那",
+    "upright": [
+      "滋養",
+      "豐盛",
+      "感官"
+    ],
+    "reversed": [
+      "依賴",
+      "耗竭",
+      "過度照顧"
+    ],
+    "meaning": "以耐心照顧正在成長的人事物。",
+    "reverseMeaning": "照顧他人前，重新補足自己的能量。",
+    "artwork": "File:RWS Tarot 03 Empress.jpg"
+  },
+  {
+    "id": 4,
+    "name": "皇帝",
+    "en": "The Emperor",
+    "number": "IV",
+    "suit": "大阿爾克那",
+    "upright": [
+      "秩序",
+      "責任",
+      "穩定"
+    ],
+    "reversed": [
+      "僵化",
+      "控制",
+      "失序"
+    ],
+    "meaning": "建立清楚界線與可持續的結構。",
+    "reverseMeaning": "檢視規則是否過緊，讓責任與彈性並存。",
+    "artwork": "File:RWS Tarot 04 Emperor.jpg"
+  },
+  {
+    "id": 5,
+    "name": "教皇",
+    "en": "The Hierophant",
+    "number": "V",
+    "suit": "大阿爾克那",
+    "upright": [
+      "傳承",
+      "學習",
+      "信念"
+    ],
+    "reversed": [
+      "盲從",
+      "質疑",
+      "束縛"
+    ],
+    "meaning": "向可靠經驗學習，理解共同價值。",
+    "reverseMeaning": "重新檢查既有信念是否仍適合自己。",
+    "artwork": "File:RWS Tarot 05 Hierophant.jpg"
+  },
+  {
+    "id": 6,
+    "name": "戀人",
+    "en": "The Lovers",
+    "number": "VI",
+    "suit": "大阿爾克那",
+    "upright": [
+      "連結",
+      "選擇",
+      "契合"
+    ],
+    "reversed": [
+      "失衡",
+      "分歧",
+      "矛盾"
+    ],
+    "meaning": "讓選擇與核心價值一致，坦誠交流。",
+    "reverseMeaning": "釐清彼此需要與尚未面對的分歧。",
+    "artwork": "File:RWS Tarot 06 Lovers.jpg"
+  },
+  {
+    "id": 7,
+    "name": "戰車",
+    "en": "The Chariot",
+    "number": "VII",
+    "suit": "大阿爾克那",
+    "upright": [
+      "意志",
+      "方向",
+      "前進"
+    ],
+    "reversed": [
+      "失控",
+      "受阻",
+      "急躁"
+    ],
+    "meaning": "整合相反力量，專注於明確目標。",
+    "reverseMeaning": "放慢腳步調整方向，避免只靠意志硬撐。",
+    "artwork": "File:RWS Tarot 07 Chariot.jpg"
+  },
+  {
+    "id": 8,
+    "name": "力量",
+    "en": "Strength",
+    "number": "VIII",
+    "suit": "大阿爾克那",
+    "upright": [
+      "勇氣",
+      "耐心",
+      "溫柔"
+    ],
+    "reversed": [
+      "自疑",
+      "壓抑",
+      "衝動"
+    ],
+    "meaning": "以溫柔與穩定回應困難。",
+    "reverseMeaning": "接納脆弱，辨認被壓住的情緒。",
+    "artwork": "File:RWS Tarot 08 Strength.jpg"
+  },
+  {
+    "id": 9,
+    "name": "隱者",
+    "en": "The Hermit",
+    "number": "IX",
+    "suit": "大阿爾克那",
+    "upright": [
+      "內省",
+      "獨處",
+      "探索"
+    ],
+    "reversed": [
+      "孤立",
+      "退縮",
+      "迷惘"
+    ],
+    "meaning": "留一段安靜時間，尋找自己的答案。",
+    "reverseMeaning": "辨認獨處是否變成隔離，適時尋求交流。",
+    "artwork": "File:RWS Tarot 09 Hermit.jpg"
+  },
+  {
+    "id": 10,
+    "name": "命運之輪",
+    "en": "Wheel of Fortune",
+    "number": "X",
+    "suit": "大阿爾克那",
+    "upright": [
+      "轉變",
+      "週期",
+      "契機"
+    ],
+    "reversed": [
+      "反覆",
+      "抗拒",
+      "失衡"
+    ],
+    "meaning": "觀察變化中的機會，調整自己的步伐。",
+    "reverseMeaning": "面對無法控制的事，改變能控制的回應。",
+    "artwork": "File:RWS Tarot 10 Wheel of Fortune.jpg"
+  },
+  {
+    "id": 11,
+    "name": "正義",
+    "en": "Justice",
+    "number": "XI",
+    "suit": "大阿爾克那",
+    "upright": [
+      "公平",
+      "因果",
+      "誠實"
+    ],
+    "reversed": [
+      "偏見",
+      "失衡",
+      "卸責"
+    ],
+    "meaning": "根據事實衡量選擇，承擔行動後果。",
+    "reverseMeaning": "檢查偏見與資訊缺口，重新校準判斷。",
+    "artwork": "File:RWS Tarot 11 Justice.jpg"
+  },
+  {
+    "id": 12,
+    "name": "倒吊人",
+    "en": "The Hanged Man",
+    "number": "XII",
+    "suit": "大阿爾克那",
+    "upright": [
+      "停頓",
+      "換位",
+      "放下"
+    ],
+    "reversed": [
+      "拖延",
+      "執著",
+      "徒勞"
+    ],
+    "meaning": "暫停推進，從不同角度理解處境。",
+    "reverseMeaning": "檢視等待是否仍有意義，釋放無效付出。",
+    "artwork": "File:RWS Tarot 12 Hanged Man.jpg"
+  },
+  {
+    "id": 13,
+    "name": "死神",
+    "en": "Death",
+    "number": "XIII",
+    "suit": "大阿爾克那",
+    "upright": [
+      "結束",
+      "蛻變",
+      "更新"
+    ],
+    "reversed": [
+      "抗拒",
+      "停滯",
+      "留戀"
+    ],
+    "meaning": "為已結束的階段告別，給新事物空間。",
+    "reverseMeaning": "辨認不願放手的原因，逐步完成過渡。",
+    "artwork": "File:RWS Tarot 13 Death.jpg"
+  },
+  {
+    "id": 14,
+    "name": "節制",
+    "en": "Temperance",
+    "number": "XIV",
+    "suit": "大阿爾克那",
+    "upright": [
+      "平衡",
+      "調和",
+      "節奏"
+    ],
+    "reversed": [
+      "過量",
+      "衝突",
+      "急進"
+    ],
+    "meaning": "調整比例與步調，讓不同需求共存。",
+    "reverseMeaning": "找出過度投入的一端，恢復可持續節奏。",
+    "artwork": "File:RWS Tarot 14 Temperance.jpg"
+  },
+  {
+    "id": 15,
+    "name": "惡魔",
+    "en": "The Devil",
+    "number": "XV",
+    "suit": "大阿爾克那",
+    "upright": [
+      "束縛",
+      "慾望",
+      "依附"
+    ],
+    "reversed": [
+      "鬆綁",
+      "覺察",
+      "戒除"
+    ],
+    "meaning": "看清讓自己失去自主的習慣與交換。",
+    "reverseMeaning": "辨認束縛的來源，練習取回選擇權。",
+    "artwork": "File:RWS Tarot 15 Devil.jpg"
+  },
+  {
+    "id": 16,
+    "name": "高塔",
+    "en": "The Tower",
+    "number": "XVI",
+    "suit": "大阿爾克那",
+    "upright": [
+      "震動",
+      "揭露",
+      "瓦解"
+    ],
+    "reversed": [
+      "迴避",
+      "餘震",
+      "恐懼"
+    ],
+    "meaning": "當舊結構動搖，先照顧當下的穩定。",
+    "reverseMeaning": "正視累積的裂縫，逐步重建基礎。",
+    "artwork": "File:RWS Tarot 16 Tower.jpg"
+  },
+  {
+    "id": 17,
+    "name": "星星",
+    "en": "The Star",
+    "number": "XVII",
+    "suit": "大阿爾克那",
+    "upright": [
+      "希望",
+      "療癒",
+      "靈感"
+    ],
+    "reversed": [
+      "失望",
+      "枯竭",
+      "懷疑"
+    ],
+    "meaning": "以微小而穩定的行動恢復信任。",
+    "reverseMeaning": "給疲憊留空間，尋找可感受的小小支持。",
+    "artwork": "File:RWS Tarot 17 Star.jpg"
+  },
+  {
+    "id": 18,
+    "name": "月亮",
+    "en": "The Moon",
+    "number": "XVIII",
+    "suit": "大阿爾克那",
+    "upright": [
+      "夢境",
+      "未知",
+      "情緒"
+    ],
+    "reversed": [
+      "釐清",
+      "不安",
+      "迷霧消散"
+    ],
+    "meaning": "資訊未明時容許不確定，留意情緒訊號。",
+    "reverseMeaning": "逐步查證猜測，區分事實與投射。",
+    "artwork": "File:RWS Tarot 18 Moon.jpg"
+  },
+  {
+    "id": 19,
+    "name": "太陽",
+    "en": "The Sun",
+    "number": "XIX",
+    "suit": "大阿爾克那",
+    "upright": [
+      "喜悅",
+      "清晰",
+      "活力"
+    ],
+    "reversed": [
+      "低潮",
+      "逞強",
+      "延遲"
+    ],
+    "meaning": "坦然表達自己，珍惜清楚可見的進展。",
+    "reverseMeaning": "降低表現壓力，重新找回簡單的喜悅。",
+    "artwork": "File:RWS Tarot 19 Sun.jpg"
+  },
+  {
+    "id": 20,
+    "name": "審判",
+    "en": "Judgement",
+    "number": "XX",
+    "suit": "大阿爾克那",
+    "upright": [
+      "覺醒",
+      "回顧",
+      "召喚"
+    ],
+    "reversed": [
+      "自責",
+      "逃避",
+      "遲疑"
+    ],
+    "meaning": "回顧走過的路，回應內在的重要呼喚。",
+    "reverseMeaning": "放下過度自我評判，誠實面對待決事項。",
+    "artwork": "File:RWS Tarot 20 Judgement.jpg"
+  },
+  {
+    "id": 21,
+    "name": "世界",
+    "en": "The World",
+    "number": "XXI",
+    "suit": "大阿爾克那",
+    "upright": [
+      "完成",
+      "整合",
+      "圓滿"
+    ],
+    "reversed": [
+      "未竟",
+      "停頓",
+      "缺口"
+    ],
+    "meaning": "肯定一個循環的完成，整合所學。",
+    "reverseMeaning": "找出尚未收尾的細節，為階段畫下句點。",
+    "artwork": "File:RWS Tarot 21 World.jpg"
+  },
+  {
+    "id": 22,
+    "name": "權杖王牌",
+    "en": "Ace of Wands",
+    "number": "1",
+    "suit": "權杖",
+    "upright": [
+      "靈感",
+      "活力",
+      "開創"
+    ],
+    "reversed": [
+      "倦怠",
+      "延遲",
+      "失去熱情"
+    ],
+    "meaning": "把湧現的靈感化成一個可以開始的計畫。",
+    "reverseMeaning": "釐清動機，給尚未成熟的想法一點時間。",
+    "artwork": "File:Wands01.jpg"
+  },
+  {
+    "id": 23,
+    "name": "權杖二",
+    "en": "Two of Wands",
+    "number": "2",
+    "suit": "權杖",
+    "upright": [
+      "規劃",
+      "遠見",
+      "抉擇"
+    ],
+    "reversed": [
+      "畏縮",
+      "侷限",
+      "計畫不足"
+    ],
+    "meaning": "從已有的基礎展望未來，評估下一步的方向。",
+    "reverseMeaning": "檢查計畫是否只是想像，補上具體準備。",
+    "artwork": "File:Wands02.jpg"
+  },
+  {
+    "id": 24,
+    "name": "權杖三",
+    "en": "Three of Wands",
+    "number": "3",
+    "suit": "權杖",
+    "upright": [
+      "拓展",
+      "遠行",
+      "等待成果"
+    ],
+    "reversed": [
+      "延誤",
+      "阻礙",
+      "視野受限"
+    ],
+    "meaning": "讓視野走得更遠，耐心觀察投入的回應。",
+    "reverseMeaning": "重新評估外部條件，調整擴展的速度。",
+    "artwork": "File:Wands03.jpg"
+  },
+  {
+    "id": 25,
+    "name": "權杖四",
+    "en": "Four of Wands",
+    "number": "4",
+    "suit": "權杖",
+    "upright": [
+      "慶祝",
+      "歸屬",
+      "穩固"
+    ],
+    "reversed": [
+      "不和",
+      "不安",
+      "慶祝延遲"
+    ],
+    "meaning": "珍惜共同建立的安穩，與支持你的人分享成果。",
+    "reverseMeaning": "留意家園或團隊中尚未說清的不安。",
+    "artwork": "File:Wands04.jpg"
+  },
+  {
+    "id": 26,
+    "name": "權杖五",
+    "en": "Five of Wands",
+    "number": "5",
+    "suit": "權杖",
+    "upright": [
+      "競爭",
+      "摩擦",
+      "切磋"
+    ],
+    "reversed": [
+      "避戰",
+      "內耗",
+      "衝突緩解"
+    ],
+    "meaning": "辨認意見碰撞中的價值，避免把差異當敵意。",
+    "reverseMeaning": "分辨和平與壓抑，處理未解的分歧。",
+    "artwork": "File:Wands05.jpg"
+  },
+  {
+    "id": 27,
+    "name": "權杖六",
+    "en": "Six of Wands",
+    "number": "6",
+    "suit": "權杖",
+    "upright": [
+      "肯定",
+      "勝利",
+      "自信"
+    ],
+    "reversed": [
+      "失落",
+      "虛榮",
+      "缺乏認可"
+    ],
+    "meaning": "接受努力帶來的肯定，也記得同行者的貢獻。",
+    "reverseMeaning": "把自我價值從外部掌聲中慢慢取回。",
+    "artwork": "File:Wands06.jpg"
+  },
+  {
+    "id": 28,
+    "name": "權杖七",
+    "en": "Seven of Wands",
+    "number": "7",
+    "suit": "權杖",
+    "upright": [
+      "立場",
+      "勇氣",
+      "防守"
+    ],
+    "reversed": [
+      "招架不住",
+      "退讓",
+      "耗竭"
+    ],
+    "meaning": "在壓力下守住重要界線，選擇值得應對的挑戰。",
+    "reverseMeaning": "減少無謂防禦，重新分配有限的精力。",
+    "artwork": "File:Wands07.jpg"
+  },
+  {
+    "id": 29,
+    "name": "權杖八",
+    "en": "Eight of Wands",
+    "number": "8",
+    "suit": "權杖",
+    "upright": [
+      "迅速",
+      "訊息",
+      "進展"
+    ],
+    "reversed": [
+      "延誤",
+      "急躁",
+      "混亂"
+    ],
+    "meaning": "事情可能加速，讓溝通與準備跟上節奏。",
+    "reverseMeaning": "放慢反應，避免訊息不清造成誤會。",
+    "artwork": "File:Wands08.jpg"
+  },
+  {
+    "id": 30,
+    "name": "權杖九",
+    "en": "Nine of Wands",
+    "number": "9",
+    "suit": "權杖",
+    "upright": [
+      "韌性",
+      "戒備",
+      "堅持"
+    ],
+    "reversed": [
+      "疲憊",
+      "戒心",
+      "放棄"
+    ],
+    "meaning": "承認走到這裡的辛苦，保護自己也保留彈性。",
+    "reverseMeaning": "評估繼續堅持的代價，容許休息與求援。",
+    "artwork": "File:Wands09.jpg"
+  },
+  {
+    "id": 31,
+    "name": "權杖十",
+    "en": "Ten of Wands",
+    "number": "10",
+    "suit": "權杖",
+    "upright": [
+      "重擔",
+      "責任",
+      "勞累"
+    ],
+    "reversed": [
+      "卸重",
+      "超載",
+      "逃責"
+    ],
+    "meaning": "檢查承擔是否過多，把任務分成可處理的部分。",
+    "reverseMeaning": "放下不屬於自己的責任，或處理拖延的義務。",
+    "artwork": "File:Wands10.jpg"
+  },
+  {
+    "id": 32,
+    "name": "權杖侍者",
+    "en": "Page of Wands",
+    "number": "11",
+    "suit": "權杖",
+    "upright": [
+      "好奇",
+      "訊息",
+      "學習"
+    ],
+    "reversed": [
+      "幼稚",
+      "分心",
+      "遲疑"
+    ],
+    "meaning": "在行動、熱情與創造的課題中，以初學者心態探索，留意新的訊息。",
+    "reverseMeaning": "在行動、熱情與創造的課題中，將好奇轉為練習，檢查資訊是否可靠。",
+    "artwork": "File:Wands11.jpg"
+  },
+  {
+    "id": 33,
+    "name": "權杖騎士",
+    "en": "Knight of Wands",
+    "number": "12",
+    "suit": "權杖",
+    "upright": [
+      "追求",
+      "行動",
+      "旅程"
+    ],
+    "reversed": [
+      "冒進",
+      "停滯",
+      "偏執"
+    ],
+    "meaning": "在行動、熱情與創造的課題中，帶著方向前進，同時觀察行動的影響。",
+    "reverseMeaning": "在行動、熱情與創造的課題中，調整速度，避免衝動或過度固執。",
+    "artwork": "File:Wands12.jpg"
+  },
+  {
+    "id": 34,
+    "name": "權杖皇后",
+    "en": "Queen of Wands",
+    "number": "13",
+    "suit": "權杖",
+    "upright": [
+      "成熟",
+      "照顧",
+      "感受"
+    ],
+    "reversed": [
+      "耗竭",
+      "依賴",
+      "失衡"
+    ],
+    "meaning": "在行動、熱情與創造的課題中，以成熟的覺察照顧自己與周遭。",
+    "reverseMeaning": "在行動、熱情與創造的課題中，恢復界線，避免用付出取代自己的需要。",
+    "artwork": "File:Wands13.jpg"
+  },
+  {
+    "id": 35,
+    "name": "權杖國王",
+    "en": "King of Wands",
+    "number": "14",
+    "suit": "權杖",
+    "upright": [
+      "掌握",
+      "領導",
+      "責任"
+    ],
+    "reversed": [
+      "控制",
+      "濫權",
+      "僵化"
+    ],
+    "meaning": "在行動、熱情與創造的課題中，以穩定判斷管理資源並承擔責任。",
+    "reverseMeaning": "在行動、熱情與創造的課題中，檢視權力與責任是否平衡，練習聆聽。",
+    "artwork": "File:Wands14.jpg"
+  },
+  {
+    "id": 36,
+    "name": "聖杯王牌",
+    "en": "Ace of Cups",
+    "number": "1",
+    "suit": "聖杯",
+    "upright": [
+      "情感萌芽",
+      "接納",
+      "滋養"
+    ],
+    "reversed": [
+      "封閉",
+      "壓抑",
+      "耗竭"
+    ],
+    "meaning": "為感受與連結騰出空間，允許心意流動。",
+    "reverseMeaning": "照顧尚未被承認的情緒，先滋養自己。",
+    "artwork": "File:Cups01.jpg"
+  },
+  {
+    "id": 37,
+    "name": "聖杯二",
+    "en": "Two of Cups",
+    "number": "2",
+    "suit": "聖杯",
+    "upright": [
+      "互信",
+      "結合",
+      "平等"
+    ],
+    "reversed": [
+      "失和",
+      "疏離",
+      "不對等"
+    ],
+    "meaning": "透過真誠回應，建立互相尊重的連結。",
+    "reverseMeaning": "檢查關係中的付出、期待與界線。",
+    "artwork": "File:Cups02.jpg"
+  },
+  {
+    "id": 38,
+    "name": "聖杯三",
+    "en": "Three of Cups",
+    "number": "3",
+    "suit": "聖杯",
+    "upright": [
+      "友誼",
+      "歡聚",
+      "支持"
+    ],
+    "reversed": [
+      "小圈子",
+      "過量",
+      "孤立"
+    ],
+    "meaning": "與信任的人分享喜悅，接受群體的支持。",
+    "reverseMeaning": "辨認社交是否滋養你，調整參與的界線。",
+    "artwork": "File:Cups03.jpg"
+  },
+  {
+    "id": 39,
+    "name": "聖杯四",
+    "en": "Four of Cups",
+    "number": "4",
+    "suit": "聖杯",
+    "upright": [
+      "沉思",
+      "冷淡",
+      "錯過"
+    ],
+    "reversed": [
+      "重新開放",
+      "覺察",
+      "躁動"
+    ],
+    "meaning": "停下來看清內在需要，也留意眼前被忽略的機會。",
+    "reverseMeaning": "嘗試重新參與生活，辨認真正吸引你的事。",
+    "artwork": "File:Cups04.jpg"
+  },
+  {
+    "id": 40,
+    "name": "聖杯五",
+    "en": "Five of Cups",
+    "number": "5",
+    "suit": "聖杯",
+    "upright": [
+      "失落",
+      "哀傷",
+      "遺憾"
+    ],
+    "reversed": [
+      "接納",
+      "復原",
+      "放下"
+    ],
+    "meaning": "給失去留出悲傷的位置，也看見仍存在的支持。",
+    "reverseMeaning": "逐漸整合遺憾，允許自己再次向前。",
+    "artwork": "File:Cups05.jpg"
+  },
+  {
+    "id": 41,
+    "name": "聖杯六",
+    "en": "Six of Cups",
+    "number": "6",
+    "suit": "聖杯",
+    "upright": [
+      "童年",
+      "回憶",
+      "善意"
+    ],
+    "reversed": [
+      "困於過去",
+      "理想化",
+      "成長"
+    ],
+    "meaning": "從溫柔記憶中汲取支持，保留單純的善意。",
+    "reverseMeaning": "區分真實的過去與理想化想像，回到現在。",
+    "artwork": "File:Cups06.jpg"
+  },
+  {
+    "id": 42,
+    "name": "聖杯七",
+    "en": "Seven of Cups",
+    "number": "7",
+    "suit": "聖杯",
+    "upright": [
+      "想像",
+      "選項",
+      "誘惑"
+    ],
+    "reversed": [
+      "聚焦",
+      "迷惘",
+      "清醒"
+    ],
+    "meaning": "探索可能性之前，先確認每個選項的實際條件。",
+    "reverseMeaning": "減少空想，選一項能落實的方向。",
+    "artwork": "File:Cups07.jpg"
+  },
+  {
+    "id": 43,
+    "name": "聖杯八",
+    "en": "Eight of Cups",
+    "number": "8",
+    "suit": "聖杯",
+    "upright": [
+      "離開",
+      "追尋",
+      "轉身"
+    ],
+    "reversed": [
+      "留戀",
+      "逃避",
+      "回頭"
+    ],
+    "meaning": "承認某些滿足已不足，尋找更有意義的方向。",
+    "reverseMeaning": "辨認離開是成長或逃避，再決定去留。",
+    "artwork": "File:Cups08.jpg"
+  },
+  {
+    "id": 44,
+    "name": "聖杯九",
+    "en": "Nine of Cups",
+    "number": "9",
+    "suit": "聖杯",
+    "upright": [
+      "滿足",
+      "享受",
+      "願望"
+    ],
+    "reversed": [
+      "空虛",
+      "貪求",
+      "表面滿足"
+    ],
+    "meaning": "感謝已有的滿足，讓快樂落在真實的生活裡。",
+    "reverseMeaning": "檢查看似理想的狀態是否回應內心需要。",
+    "artwork": "File:Cups09.jpg"
+  },
+  {
+    "id": 45,
+    "name": "聖杯十",
+    "en": "Ten of Cups",
+    "number": "10",
+    "suit": "聖杯",
+    "upright": [
+      "和諧",
+      "家人",
+      "情感圓滿"
+    ],
+    "reversed": [
+      "期待落差",
+      "失和",
+      "價值分歧"
+    ],
+    "meaning": "珍惜互相支持的關係，讓幸福有日常的基礎。",
+    "reverseMeaning": "放下完美關係的想像，坦誠討論不同需要。",
+    "artwork": "File:Cups10.jpg"
+  },
+  {
+    "id": 46,
+    "name": "聖杯侍者",
+    "en": "Page of Cups",
+    "number": "11",
+    "suit": "聖杯",
+    "upright": [
+      "好奇",
+      "訊息",
+      "學習"
+    ],
+    "reversed": [
+      "幼稚",
+      "分心",
+      "遲疑"
+    ],
+    "meaning": "在情感、關係與感受的課題中，以初學者心態探索，留意新的訊息。",
+    "reverseMeaning": "在情感、關係與感受的課題中，將好奇轉為練習，檢查資訊是否可靠。",
+    "artwork": "File:Cups11.jpg"
+  },
+  {
+    "id": 47,
+    "name": "聖杯騎士",
+    "en": "Knight of Cups",
+    "number": "12",
+    "suit": "聖杯",
+    "upright": [
+      "追求",
+      "行動",
+      "旅程"
+    ],
+    "reversed": [
+      "冒進",
+      "停滯",
+      "偏執"
+    ],
+    "meaning": "在情感、關係與感受的課題中，帶著方向前進，同時觀察行動的影響。",
+    "reverseMeaning": "在情感、關係與感受的課題中，調整速度，避免衝動或過度固執。",
+    "artwork": "File:Cups12.jpg"
+  },
+  {
+    "id": 48,
+    "name": "聖杯皇后",
+    "en": "Queen of Cups",
+    "number": "13",
+    "suit": "聖杯",
+    "upright": [
+      "成熟",
+      "照顧",
+      "感受"
+    ],
+    "reversed": [
+      "耗竭",
+      "依賴",
+      "失衡"
+    ],
+    "meaning": "在情感、關係與感受的課題中，以成熟的覺察照顧自己與周遭。",
+    "reverseMeaning": "在情感、關係與感受的課題中，恢復界線，避免用付出取代自己的需要。",
+    "artwork": "File:Cups13.jpg"
+  },
+  {
+    "id": 49,
+    "name": "聖杯國王",
+    "en": "King of Cups",
+    "number": "14",
+    "suit": "聖杯",
+    "upright": [
+      "掌握",
+      "領導",
+      "責任"
+    ],
+    "reversed": [
+      "控制",
+      "濫權",
+      "僵化"
+    ],
+    "meaning": "在情感、關係與感受的課題中，以穩定判斷管理資源並承擔責任。",
+    "reverseMeaning": "在情感、關係與感受的課題中，檢視權力與責任是否平衡，練習聆聽。",
+    "artwork": "File:Cups14.jpg"
+  },
+  {
+    "id": 50,
+    "name": "寶劍王牌",
+    "en": "Ace of Swords",
+    "number": "1",
+    "suit": "寶劍",
+    "upright": [
+      "清晰",
+      "真相",
+      "突破"
+    ],
+    "reversed": [
+      "混亂",
+      "誤判",
+      "言語衝突"
+    ],
+    "meaning": "以清楚的思考切開混沌，誠實面對事實。",
+    "reverseMeaning": "先查證再下結論，留意溝通是否傷人。",
+    "artwork": "File:Swords01.jpg"
+  },
+  {
+    "id": 51,
+    "name": "寶劍二",
+    "en": "Two of Swords",
+    "number": "2",
+    "suit": "寶劍",
+    "upright": [
+      "僵持",
+      "兩難",
+      "防衛"
+    ],
+    "reversed": [
+      "資訊過載",
+      "逃避",
+      "抉擇"
+    ],
+    "meaning": "承認面臨的兩難，補足做決定需要的資訊。",
+    "reverseMeaning": "放下對完美答案的等待，逐步面對選擇。",
+    "artwork": "File:Swords02.jpg"
+  },
+  {
+    "id": 52,
+    "name": "寶劍三",
+    "en": "Three of Swords",
+    "number": "3",
+    "suit": "寶劍",
+    "upright": [
+      "心痛",
+      "分離",
+      "悲傷"
+    ],
+    "reversed": [
+      "修復",
+      "釋懷",
+      "壓住悲傷"
+    ],
+    "meaning": "允許難過被看見，以誠實照顧受傷的部分。",
+    "reverseMeaning": "給修復一些時間，避免用壓抑取代釋懷。",
+    "artwork": "File:Swords03.jpg"
+  },
+  {
+    "id": 53,
+    "name": "寶劍四",
+    "en": "Four of Swords",
+    "number": "4",
+    "suit": "寶劍",
+    "upright": [
+      "休息",
+      "恢復",
+      "暫停"
+    ],
+    "reversed": [
+      "過勞",
+      "躁動",
+      "重新出發"
+    ],
+    "meaning": "暫時離開消耗，讓身心有恢復的空間。",
+    "reverseMeaning": "檢查是否休息不足，循序恢復行動。",
+    "artwork": "File:Swords04.jpg"
+  },
+  {
+    "id": 54,
+    "name": "寶劍五",
+    "en": "Five of Swords",
+    "number": "5",
+    "suit": "寶劍",
+    "upright": [
+      "爭執",
+      "代價",
+      "輸贏"
+    ],
+    "reversed": [
+      "和解",
+      "餘怨",
+      "退場"
+    ],
+    "meaning": "檢視贏得爭執所付的代價，選擇值得守護的關係。",
+    "reverseMeaning": "面對尚未消散的怨氣，尋找停止傷害的方法。",
+    "artwork": "File:Swords05.jpg"
+  },
+  {
+    "id": 55,
+    "name": "寶劍六",
+    "en": "Six of Swords",
+    "number": "6",
+    "suit": "寶劍",
+    "upright": [
+      "過渡",
+      "離開困境",
+      "前行"
+    ],
+    "reversed": [
+      "停滯",
+      "行李",
+      "抗拒改變"
+    ],
+    "meaning": "帶著經驗離開混亂，逐步走向較平穩的處境。",
+    "reverseMeaning": "辨認阻礙過渡的牽掛，讓支持陪你移動。",
+    "artwork": "File:Swords06.jpg"
+  },
+  {
+    "id": 56,
+    "name": "寶劍七",
+    "en": "Seven of Swords",
+    "number": "7",
+    "suit": "寶劍",
+    "upright": [
+      "策略",
+      "隱瞞",
+      "獨行"
+    ],
+    "reversed": [
+      "坦白",
+      "揭露",
+      "自欺"
+    ],
+    "meaning": "以策略處事，也檢查是否在迴避必要的誠實。",
+    "reverseMeaning": "整理未說出的事實，停止對自己隱瞞。",
+    "artwork": "File:Swords07.jpg"
+  },
+  {
+    "id": 57,
+    "name": "寶劍八",
+    "en": "Eight of Swords",
+    "number": "8",
+    "suit": "寶劍",
+    "upright": [
+      "受困",
+      "限制",
+      "無力"
+    ],
+    "reversed": [
+      "解束",
+      "自主",
+      "內在枷鎖"
+    ],
+    "meaning": "區分真實限制與自我設限，尋找可移動的一步。",
+    "reverseMeaning": "辨認已有的選擇權，逐步鬆開束縛。",
+    "artwork": "File:Swords08.jpg"
+  },
+  {
+    "id": 58,
+    "name": "寶劍九",
+    "en": "Nine of Swords",
+    "number": "9",
+    "suit": "寶劍",
+    "upright": [
+      "焦慮",
+      "失眠",
+      "自責"
+    ],
+    "reversed": [
+      "求援",
+      "緩解",
+      "深層擔憂"
+    ],
+    "meaning": "把腦中的擔憂說出來，區分想像與當下事實。",
+    "reverseMeaning": "接受支持，持續照顧仍未緩解的壓力。",
+    "artwork": "File:Swords09.jpg"
+  },
+  {
+    "id": 59,
+    "name": "寶劍十",
+    "en": "Ten of Swords",
+    "number": "10",
+    "suit": "寶劍",
+    "upright": [
+      "結束",
+      "痛楚",
+      "觸底"
+    ],
+    "reversed": [
+      "復原",
+      "拖延結束",
+      "再起"
+    ],
+    "meaning": "承認一段艱難歷程的終點，先照顧自己的恢復。",
+    "reverseMeaning": "讓復原慢慢發生，也正視需要結束的事。",
+    "artwork": "File:Swords10.jpg"
+  },
+  {
+    "id": 60,
+    "name": "寶劍侍者",
+    "en": "Page of Swords",
+    "number": "11",
+    "suit": "寶劍",
+    "upright": [
+      "好奇",
+      "訊息",
+      "學習"
+    ],
+    "reversed": [
+      "幼稚",
+      "分心",
+      "遲疑"
+    ],
+    "meaning": "在思考、溝通與判斷的課題中，以初學者心態探索，留意新的訊息。",
+    "reverseMeaning": "在思考、溝通與判斷的課題中，將好奇轉為練習，檢查資訊是否可靠。",
+    "artwork": "File:Swords11.jpg"
+  },
+  {
+    "id": 61,
+    "name": "寶劍騎士",
+    "en": "Knight of Swords",
+    "number": "12",
+    "suit": "寶劍",
+    "upright": [
+      "追求",
+      "行動",
+      "旅程"
+    ],
+    "reversed": [
+      "冒進",
+      "停滯",
+      "偏執"
+    ],
+    "meaning": "在思考、溝通與判斷的課題中，帶著方向前進，同時觀察行動的影響。",
+    "reverseMeaning": "在思考、溝通與判斷的課題中，調整速度，避免衝動或過度固執。",
+    "artwork": "File:Swords12.jpg"
+  },
+  {
+    "id": 62,
+    "name": "寶劍皇后",
+    "en": "Queen of Swords",
+    "number": "13",
+    "suit": "寶劍",
+    "upright": [
+      "成熟",
+      "照顧",
+      "感受"
+    ],
+    "reversed": [
+      "耗竭",
+      "依賴",
+      "失衡"
+    ],
+    "meaning": "在思考、溝通與判斷的課題中，以成熟的覺察照顧自己與周遭。",
+    "reverseMeaning": "在思考、溝通與判斷的課題中，恢復界線，避免用付出取代自己的需要。",
+    "artwork": "File:Swords13.jpg"
+  },
+  {
+    "id": 63,
+    "name": "寶劍國王",
+    "en": "King of Swords",
+    "number": "14",
+    "suit": "寶劍",
+    "upright": [
+      "掌握",
+      "領導",
+      "責任"
+    ],
+    "reversed": [
+      "控制",
+      "濫權",
+      "僵化"
+    ],
+    "meaning": "在思考、溝通與判斷的課題中，以穩定判斷管理資源並承擔責任。",
+    "reverseMeaning": "在思考、溝通與判斷的課題中，檢視權力與責任是否平衡，練習聆聽。",
+    "artwork": "File:Swords14.jpg"
+  },
+  {
+    "id": 64,
+    "name": "錢幣王牌",
+    "en": "Ace of Pentacles",
+    "number": "1",
+    "suit": "錢幣",
+    "upright": [
+      "資源",
+      "機會",
+      "踏實起點"
+    ],
+    "reversed": [
+      "錯失",
+      "匱乏",
+      "規劃不足"
+    ],
+    "meaning": "把可用資源投入一個具體且可持續的開始。",
+    "reverseMeaning": "檢查成本與條件，避免忽略實際需求。",
+    "artwork": "File:Pents01.jpg"
+  },
+  {
+    "id": 65,
+    "name": "錢幣二",
+    "en": "Two of Pentacles",
+    "number": "2",
+    "suit": "錢幣",
+    "upright": [
+      "調度",
+      "彈性",
+      "多工"
+    ],
+    "reversed": [
+      "失衡",
+      "超載",
+      "優先混亂"
+    ],
+    "meaning": "在多種責任間調整節奏，保持現實的彈性。",
+    "reverseMeaning": "減少同時處理的事，重新安排優先順序。",
+    "artwork": "File:Pents02.jpg"
+  },
+  {
+    "id": 66,
+    "name": "錢幣三",
+    "en": "Three of Pentacles",
+    "number": "3",
+    "suit": "錢幣",
+    "upright": [
+      "技藝",
+      "協作",
+      "學習"
+    ],
+    "reversed": [
+      "協調不足",
+      "品質落差",
+      "單打獨鬥"
+    ],
+    "meaning": "尊重不同專長，透過合作把工作做好。",
+    "reverseMeaning": "說清分工與標準，補上合作中的缺口。",
+    "artwork": "File:Pents03.jpg"
+  },
+  {
+    "id": 67,
+    "name": "錢幣四",
+    "en": "Four of Pentacles",
+    "number": "4",
+    "suit": "錢幣",
+    "upright": [
+      "守成",
+      "安全",
+      "緊握"
+    ],
+    "reversed": [
+      "鬆手",
+      "失控",
+      "匱乏感"
+    ],
+    "meaning": "建立安全基礎，同時留意是否因害怕而握得太緊。",
+    "reverseMeaning": "調整控制與花用，辨認不安全感的來源。",
+    "artwork": "File:Pents04.jpg"
+  },
+  {
+    "id": 68,
+    "name": "錢幣五",
+    "en": "Five of Pentacles",
+    "number": "5",
+    "suit": "錢幣",
+    "upright": [
+      "匱乏",
+      "困境",
+      "孤立"
+    ],
+    "reversed": [
+      "求助",
+      "改善",
+      "排斥支持"
+    ],
+    "meaning": "承認現實困難，尋找能實際接住你的資源。",
+    "reverseMeaning": "留意復原的機會，允許自己接受協助。",
+    "artwork": "File:Pents05.jpg"
+  },
+  {
+    "id": 69,
+    "name": "錢幣六",
+    "en": "Six of Pentacles",
+    "number": "6",
+    "suit": "錢幣",
+    "upright": [
+      "給予",
+      "互助",
+      "公平交換"
+    ],
+    "reversed": [
+      "不對等",
+      "附帶條件",
+      "欠情"
+    ],
+    "meaning": "在能力範圍內給予，也尊重接受者的自主。",
+    "reverseMeaning": "檢查資源交換背後的權力與期待。",
+    "artwork": "File:Pents06.jpg"
+  },
+  {
+    "id": 70,
+    "name": "錢幣七",
+    "en": "Seven of Pentacles",
+    "number": "7",
+    "suit": "錢幣",
+    "upright": [
+      "耕耘",
+      "耐心",
+      "評估"
+    ],
+    "reversed": [
+      "焦躁",
+      "回報不足",
+      "重新投入"
+    ],
+    "meaning": "回顧長期投入的成果，耐心調整栽培方式。",
+    "reverseMeaning": "評估繼續投入是否值得，避免只因沉沒成本堅持。",
+    "artwork": "File:Pents07.jpg"
+  },
+  {
+    "id": 71,
+    "name": "錢幣八",
+    "en": "Eight of Pentacles",
+    "number": "8",
+    "suit": "錢幣",
+    "upright": [
+      "練習",
+      "專注",
+      "精進"
+    ],
+    "reversed": [
+      "敷衍",
+      "完美主義",
+      "倦怠"
+    ],
+    "meaning": "透過細節與反覆練習，讓技能逐步成熟。",
+    "reverseMeaning": "重新連結工作的意義，平衡品質與負荷。",
+    "artwork": "File:Pents08.jpg"
+  },
+  {
+    "id": 72,
+    "name": "錢幣九",
+    "en": "Nine of Pentacles",
+    "number": "9",
+    "suit": "錢幣",
+    "upright": [
+      "自主",
+      "豐足",
+      "品味"
+    ],
+    "reversed": [
+      "依賴",
+      "表象",
+      "過度工作"
+    ],
+    "meaning": "欣賞自己建立的生活，享受勞動帶來的自主。",
+    "reverseMeaning": "檢視成功的代價，找回內在的安全感。",
+    "artwork": "File:Pents09.jpg"
+  },
+  {
+    "id": 73,
+    "name": "錢幣十",
+    "en": "Ten of Pentacles",
+    "number": "10",
+    "suit": "錢幣",
+    "upright": [
+      "傳承",
+      "長期穩定",
+      "家業"
+    ],
+    "reversed": [
+      "資源分歧",
+      "不穩",
+      "傳統束縛"
+    ],
+    "meaning": "從長遠角度安排共同資源與支持系統。",
+    "reverseMeaning": "討論資源與價值觀的分歧，調整僵化的期待。",
+    "artwork": "File:Pents10.jpg"
+  },
+  {
+    "id": 74,
+    "name": "錢幣侍者",
+    "en": "Page of Pentacles",
+    "number": "11",
+    "suit": "錢幣",
+    "upright": [
+      "好奇",
+      "訊息",
+      "學習"
+    ],
+    "reversed": [
+      "幼稚",
+      "分心",
+      "遲疑"
+    ],
+    "meaning": "在工作、資源與日常的課題中，以初學者心態探索，留意新的訊息。",
+    "reverseMeaning": "在工作、資源與日常的課題中，將好奇轉為練習，檢查資訊是否可靠。",
+    "artwork": "File:Pents11.jpg"
+  },
+  {
+    "id": 75,
+    "name": "錢幣騎士",
+    "en": "Knight of Pentacles",
+    "number": "12",
+    "suit": "錢幣",
+    "upright": [
+      "追求",
+      "行動",
+      "旅程"
+    ],
+    "reversed": [
+      "冒進",
+      "停滯",
+      "偏執"
+    ],
+    "meaning": "在工作、資源與日常的課題中，帶著方向前進，同時觀察行動的影響。",
+    "reverseMeaning": "在工作、資源與日常的課題中，調整速度，避免衝動或過度固執。",
+    "artwork": "File:Pents12.jpg"
+  },
+  {
+    "id": 76,
+    "name": "錢幣皇后",
+    "en": "Queen of Pentacles",
+    "number": "13",
+    "suit": "錢幣",
+    "upright": [
+      "成熟",
+      "照顧",
+      "感受"
+    ],
+    "reversed": [
+      "耗竭",
+      "依賴",
+      "失衡"
+    ],
+    "meaning": "在工作、資源與日常的課題中，以成熟的覺察照顧自己與周遭。",
+    "reverseMeaning": "在工作、資源與日常的課題中，恢復界線，避免用付出取代自己的需要。",
+    "artwork": "File:Pents13.jpg"
+  },
+  {
+    "id": 77,
+    "name": "錢幣國王",
+    "en": "King of Pentacles",
+    "number": "14",
+    "suit": "錢幣",
+    "upright": [
+      "掌握",
+      "領導",
+      "責任"
+    ],
+    "reversed": [
+      "控制",
+      "濫權",
+      "僵化"
+    ],
+    "meaning": "在工作、資源與日常的課題中，以穩定判斷管理資源並承擔責任。",
+    "reverseMeaning": "在工作、資源與日常的課題中，檢視權力與責任是否平衡，練習聆聽。",
+    "artwork": "File:Pents14.jpg"
+  }
+]

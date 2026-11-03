@@ -1,0 +1,8 @@
+Rider-Waite-Smith (Pam-A) tarot artwork, c. 1910.
+Artist: Pamela Colman Smith. Original card design: Arthur Edward Waite.
+Source: Wikimedia Commons, Rider-Waite-Smith tarot deck (TaionWC).
+https://commons.wikimedia.org/wiki/Category:Rider-Waite-Smith_tarot_deck_(TaionWC)
+All 78 individual source files were marked Public domain / Copyrighted=False when checked 2026-11-03.
+Public-domain artwork is not covered by the application code's MIT license.
+Derived assets: proportional downscale to 480px width and WebP compression; no recoloring or watermark added.
+Per-card source pages, original download URLs and hashes: sources.json in this directory.
