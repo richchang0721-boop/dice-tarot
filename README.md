@@ -1,6 +1,10 @@
-# Dice Tarot 骰塔羅 V1.0 — 第一輪修正
+# Dice Tarot（骰塔羅）— D100 × Tarot
 
-可執行的繁體中文、無後端塔羅網站。React 19 + TypeScript + Vite；IndexedDB 本機紀錄。
+[體驗 Dice Tarot](https://dice-tarot.vercel.app/)
+
+[English](README.en.md)
+
+支援繁體中文和英文的無後端塔羅網站。可在頁首切換語言，瀏覽器會記住偏好。React 19 + TypeScript + Vite；IndexedDB 本機紀錄。
 
 ## 本機啟動
 
