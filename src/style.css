@@ -1189,3 +1189,22 @@ nav button {
     max-width: 125px;
   }
 }
+
+.language-select {
+  flex-shrink: 0;
+  padding: 6px 9px;
+  color: inherit;
+  background: var(--bg, #141c26);
+  border: 1px solid currentColor;
+  border-radius: 6px;
+  font: inherit;
+  font-size: 0.8rem;
+}
+@media (max-width: 700px) {
+  html[lang="en"] header nav {
+    gap: 18px;
+  }
+  html[lang="en"] .reading-tabs {
+    flex-wrap: wrap;
+  }
+}

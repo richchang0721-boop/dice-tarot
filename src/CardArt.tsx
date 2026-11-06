@@ -1,11 +1,14 @@
+import { translate, type Locale } from "./i18n";
 import { useState } from "react";
 import type { Card } from "./cards";
 import { getCardAsset } from "./deck";
 function OriginalArt({
   card,
+  locale = "zh-Hant",
   back = false,
   reversed = false,
 }: {
+  locale?: Locale;
   card?: Card;
   back?: boolean;
   reversed?: boolean;
@@ -27,7 +30,11 @@ function OriginalArt({
       viewBox="0 0 200 330"
       role="img"
       aria-label={
-        back ? "塔羅牌背" : `${card?.name}原創象徵牌面${reversed ? "逆位" : ""}`
+        back
+          ? translate(locale, "塔羅牌背")
+          : locale === "en"
+            ? `${card?.en} card artwork${reversed ? ", reversed" : ""}`
+            : `${card?.name}原創象徵牌面${reversed ? "逆位" : ""}`
       }
     >
       <rect
@@ -92,7 +99,7 @@ function OriginalArt({
       {!back && (
         <>
           <text x="100" y="45" textAnchor="middle" fontSize="16" fill="#293b36">
-            {card?.number} · {card?.suit}
+            {card?.number} · {translate(locale, card?.suit ?? "")}
           </text>
           <path
             d={`M25 260 Q65 ${200 + (n % 35)} 100 260 T175 260L175 285L25 285Z`}
@@ -126,6 +133,7 @@ function OriginalArt({
 }
 
 export function Art(props: {
+  locale?: Locale;
   card?: Card;
   back?: boolean;
   reversed?: boolean;
@@ -144,11 +152,13 @@ export function Art(props: {
           className={"card-art " + (props.reversed ? "reverse" : "")}
           src={asset.path}
           alt={
-            props.card!.name +
-            "（" +
-            props.card!.number +
-            "）" +
-            (props.reversed ? "逆位" : "正位")
+            props.locale === "en"
+              ? `${props.card!.en} (${props.card!.number}), ${props.reversed ? "reversed" : "upright"}`
+              : props.card!.name +
+                "（" +
+                props.card!.number +
+                "）" +
+                (props.reversed ? "逆位" : "正位")
           }
           onError={() => setFailed(true)}
           loading="lazy"

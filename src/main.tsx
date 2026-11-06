@@ -1,3 +1,5 @@
+import { initialLocale, storeLocale, translate, type Locale } from "./i18n";
+import { localizeCard } from "./cardTranslations";
 import { Art } from "./CardArt";
 import React, { useState, useRef, useEffect } from "react";
 import { createRoot } from "react-dom/client";
@@ -38,6 +40,12 @@ const spreads = [
   },
 ];
 function App() {
+  const [locale, setLocale] = useState(initialLocale);
+  const t = (text: string) => translate(locale, text);
+  useEffect(() => {
+    document.documentElement.lang = locale;
+    storeLocale(locale);
+  }, [locale]);
   const [page, setPage] = useState("home"),
     [step, setStep] = useState("setup"),
     [spread, setSpread] = useState(1),
@@ -50,7 +58,9 @@ function App() {
     [needsReroll, setNeedsReroll] = useState(false),
     [busy, setBusy] = useState(false),
     [extracting, setExtracting] = useState(false),
-    [status, setStatus] = useState(""),
+    [status, setStatus] = useState<string | { "zh-Hant": string; en: string }>(
+      "",
+    ),
     [holding, setHolding] = useState(false),
     [history, setHistory] = useState<Reading[]>([]),
     [reading, setReading] = useState<Reading | null>(null),
@@ -148,9 +158,10 @@ function App() {
       setRolls(nextRolls);
       if (!result.card) {
         setNeedsReroll(true);
-        setStatus(
-          `${result.roll.value}點，超出目前${result.roll.remaining}張牌的範圍，請重新擲骰`,
-        );
+        setStatus({
+          "zh-Hant": `${result.roll.value}點，超出目前${result.roll.remaining}張牌的範圍，請重新擲骰`,
+          en: `Rolled ${result.roll.value}, outside the range of ${result.roll.remaining} remaining cards. Roll again.`,
+        });
         return;
       }
       setLocatedPosition(result.roll.position);
@@ -170,9 +181,10 @@ function App() {
         setLocatedPosition(null);
         setDeck(result.deck);
         setPicked(next);
-        setStatus(
-          `第 ${result.roll.value} 張牌已移入「${positions[picked.length]}」`,
-        );
+        setStatus({
+          "zh-Hant": `第 ${result.roll.value} 張牌已移入「${positions[picked.length]}」`,
+          en: `Card at position ${result.roll.value} drawn for ${translate("en", positions[picked.length])}.`,
+        });
         if (next.length === positions.length) {
           setReading({
             id: crypto.randomUUID(),
@@ -197,41 +209,53 @@ function App() {
     });
   }
   const digits = value ? diceDigits(value) : null;
-  const resultCard = (item: ResultCard, i: number) => (
-    <article className="result-card" key={item.card.id}>
-      <div className="position">
-        {String(i + 1).padStart(2, "0")} — {item.position}
-      </div>
-      <Art card={item.card} reversed={item.reversed} />
-      <div className="card-title">
-        <h3>{item.card.name}</h3>
-        <span>{item.reversed ? "逆位" : "正位"}</span>
-      </div>
-      <small>{item.card.en}</small>
-      <p className="keywords">
-        {(item.reversed ? item.card.reversed : item.card.upright).join(" · ")}
-      </p>
-      <p>{item.reversed ? item.card.reverseMeaning : item.card.meaning}</p>
-      {detail && (
-        <div className="detail">
-          <p className="meaning-primary">
-            <strong>{item.reversed ? "逆位" : "正位"}解讀 · 本次抽牌</strong>
-            <br />
-            {item.reversed ? item.card.reverseMeaning : item.card.meaning}
-          </p>
-          <p className="meaning-secondary">
-            <strong>{item.reversed ? "正位" : "逆位"}參考</strong>
-            <br />
-            {item.reversed ? item.card.meaning : item.card.reverseMeaning}
-          </p>
-          <small>
-            {item.card.suit} · 編號 {item.card.number} · 由剩餘牌堆第{" "}
-            {item.drawPosition} 張抽出
-          </small>
+  const resultCard = (item: ResultCard, i: number) => {
+    const card = localizeCard(item.card, locale);
+    return (
+      <article className="result-card" key={card.id}>
+        <div className="position">
+          {String(i + 1).padStart(2, "0")} — {t(item.position)}
         </div>
-      )}
-    </article>
-  );
+        <Art locale={locale} card={item.card} reversed={item.reversed} />
+        <div className="card-title">
+          <h3>{card.name}</h3>
+          <span>{item.reversed ? t("逆位") : t("正位")}</span>
+        </div>
+        <small>{locale === "en" ? card.suit : card.en}</small>
+        <p className="keywords">
+          {(item.reversed ? card.reversed : card.upright).join(" · ")}
+        </p>
+        <p>{item.reversed ? card.reverseMeaning : card.meaning}</p>
+        {detail && (
+          <div className="detail">
+            <p className="meaning-primary">
+              <strong>
+                {locale === "en"
+                  ? `${item.reversed ? t("逆位") : t("正位")} meaning · This draw`
+                  : `${item.reversed ? "逆位" : "正位"}解讀 · 本次抽牌`}
+              </strong>
+              <br />
+              {item.reversed ? card.reverseMeaning : card.meaning}
+            </p>
+            <p className="meaning-secondary">
+              <strong>
+                {locale === "en"
+                  ? `${item.reversed ? t("正位") : t("逆位")} reference`
+                  : `${item.reversed ? "正位" : "逆位"}參考`}
+              </strong>
+              <br />
+              {item.reversed ? card.meaning : card.reverseMeaning}
+            </p>
+            <small>
+              {locale === "en"
+                ? `${card.suit} · No. ${card.number} · Drawn from position ${item.drawPosition}`
+                : `${card.suit} · 編號 ${card.number} · 由剩餘牌堆第 ${item.drawPosition} 張抽出`}
+            </small>
+          </div>
+        )}
+      </article>
+    );
+  };
   return (
     <>
       <header>
@@ -245,7 +269,8 @@ function App() {
         >
           <span className="brand-symbol">✧</span>
           <span>
-            骰塔羅<small>DICE TAROT</small>
+            {t("骰塔羅")}
+            {locale !== "en" && <small>DICE TAROT</small>}
           </span>
         </a>
         <nav>
@@ -253,7 +278,7 @@ function App() {
             className={page === "home" ? "active" : ""}
             onClick={() => !busy && setPage("home")}
           >
-            占卜之間
+            {t("占卜之間")}
           </button>
           <button
             className={page === "library" ? "active" : ""}
@@ -265,13 +290,13 @@ function App() {
               }
             }}
           >
-            牌義圖書館
+            {t("牌義圖書館")}
           </button>
           <button
             className={page === "history" ? "active" : ""}
             onClick={() => !busy && openHistory()}
           >
-            我的紀錄
+            {t("我的紀錄")}
           </button>
         </nav>
         <label className="motion">
@@ -283,8 +308,21 @@ function App() {
               if (e.target.checked) finishAnimation();
             }}
           />
-          減少動態
+          {t("減少動態")}
         </label>
+        <select
+          className="language-select"
+          aria-label={locale === "en" ? "Language" : "語言"}
+          value={locale}
+          onChange={(e) => setLocale(e.target.value as Locale)}
+        >
+          <option value="zh-Hant" lang="zh-Hant">
+            繁體中文
+          </option>
+          <option value="en" lang="en">
+            English
+          </option>
+        </select>
       </header>
       <main>
         <div
@@ -292,7 +330,7 @@ function App() {
           aria-live="polite"
           className={status ? "notice" : "sr-only"}
         >
-          {status}
+          {typeof status === "string" ? t(status) : status[locale]}
         </div>
         {page === "home" && (
           <>
@@ -300,20 +338,20 @@ function App() {
               <div className="hero-copy">
                 <p className="eyebrow">A LITTLE CHANCE. A LITTLE CLARITY.</p>
                 <h1>
-                  把未知交給骰子，
+                  {t("把未知交給骰子，")}
                   <br />
-                  把答案留給自己。
+                  {t("把答案留給自己。")}
                 </h1>
                 <p className="intro">
-                  當古老塔羅遇上多面骰。
+                  {t("當古老塔羅遇上多面骰。")}
                   <br />
-                  用一場偶然的相遇，聽見內心尚未說出口的聲音。
+                  {t("用一場偶然的相遇，聽見內心尚未說出口的聲音。")}
                 </p>
                 <button className="primary" onClick={start}>
-                  開啟你的占卜 <span>↗</span>
+                  {t("開啟你的占卜")} <span>↗</span>
                 </button>
                 <p className="micro">
-                  無需註冊 · 78 張完整牌組 · 紀錄只留在你的裝置
+                  {t("無需註冊 · 78 張完整牌組 · 紀錄只留在你的裝置")}
                 </p>
               </div>
               <div className="hero-art">
@@ -322,13 +360,13 @@ function App() {
                 <span className="star s1">✦</span>
                 <span className="star s2">✧</span>
                 <div className="fan left">
-                  <Art back />
+                  <Art locale={locale} back />
                 </div>
                 <div className="fan right">
-                  <Art card={cards[17]} />
+                  <Art locale={locale} card={cards[17]} />
                 </div>
                 <div className="fan center">
-                  <Art back />
+                  <Art locale={locale} back />
                 </div>
                 <div className="hero-die">37</div>
                 <p>LET CHANCE OPEN A DOOR</p>
@@ -337,12 +375,24 @@ function App() {
             <section className="how">
               <div>
                 <p className="eyebrow">THE RITUAL</p>
-                <h2>一個問題，三個片刻。</h2>
+                <h2>{t("一個問題，三個片刻。")}</h2>
               </div>
               {[
-                ["01", "安放你的問題", "選擇牌陣，讓心中的提問慢慢清晰。"],
-                ["02", "讓骰子指路", "觸碰牌堆，擲出決定抽牌位置的百分骰。"],
-                ["03", "與自己對話", "翻開牌面，在象徵與文字之間找到啟發。"],
+                [
+                  "01",
+                  t("安放你的問題"),
+                  t("選擇牌陣，讓心中的提問慢慢清晰。"),
+                ],
+                [
+                  "02",
+                  t("讓骰子指路"),
+                  t("觸碰牌堆，擲出決定抽牌位置的百分骰。"),
+                ],
+                [
+                  "03",
+                  t("與自己對話"),
+                  t("翻開牌面，在象徵與文字之間找到啟發。"),
+                ],
               ].map((r) => (
                 <article key={r[0]}>
                   <span>{r[0]}</span>
@@ -352,8 +402,13 @@ function App() {
               ))}
             </section>
             <div className="home-note">
-              ✧ <span>問題由人提出，牌序由洗牌形成，抽牌位置交給骰子。</span>
-              <button onClick={() => setPage("library")}>探索 78 張牌 →</button>
+              ✧{" "}
+              <span>
+                {t("問題由人提出，牌序由洗牌形成，抽牌位置交給骰子。")}
+              </span>
+              <button onClick={() => setPage("library")}>
+                {t("探索 78 張牌 →")}
+              </button>
             </div>
           </>
         )}
@@ -363,44 +418,48 @@ function App() {
               <p className="eyebrow">YOUR MOMENT OF REFLECTION</p>
               <h1>
                 {step === "result"
-                  ? "屬於此刻的牌語"
+                  ? t("屬於此刻的牌語")
                   : step === "setup"
-                    ? "先為心事，留一個位置。"
-                    : "讓偶然，帶來一點啟發。"}
+                    ? t("先為心事，留一個位置。")
+                    : t("讓偶然，帶來一點啟發。")}
               </h1>
               <p>
                 {step === "setup"
-                  ? "不必找到完美的問題，只要誠實地面對自己。"
-                  : spreads[spread].name + " · " + positions.join(" / ")}
+                  ? t("不必找到完美的問題，只要誠實地面對自己。")
+                  : t(spreads[spread].name) +
+                    " · " +
+                    positions.map(t).join(" / ")}
               </p>
             </div>
             <div className="steps">
-              {["選擇牌陣", "專注洗牌", "擲骰抽牌", "閱讀牌語"].map((s, i) => (
-                <span
-                  key={s}
-                  className={
-                    (step === "setup"
-                      ? 0
-                      : step === "touch" || step === "shuffle"
-                        ? 1
-                        : step === "roll"
-                          ? 2
-                          : 3) === i
-                      ? "current"
-                      : ""
-                  }
-                >
-                  {i + 1}　{s}
-                </span>
-              ))}
+              {[t("選擇牌陣"), t("專注洗牌"), t("擲骰抽牌"), t("閱讀牌語")].map(
+                (s, i) => (
+                  <span
+                    key={s}
+                    className={
+                      (step === "setup"
+                        ? 0
+                        : step === "touch" || step === "shuffle"
+                          ? 1
+                          : step === "roll"
+                            ? 2
+                            : 3) === i
+                        ? "current"
+                        : ""
+                    }
+                  >
+                    {i + 1}　{s}
+                  </span>
+                ),
+              )}
             </div>
             {step === "setup" && (
               <section className="setup panel">
-                <h2>01　選擇你的牌陣</h2>
+                <h2>{t("01　選擇你的牌陣")}</h2>
                 <div className="spread-options">
                   {spreads.map((s, i) => (
                     <button
-                      key={s.name}
+                      key={t(s.name)}
                       className={"spread " + (spread === i ? "selected" : "")}
                       onClick={() => setSpread(i)}
                     >
@@ -409,29 +468,29 @@ function App() {
                           <span key={p}>✧</span>
                         ))}
                       </div>
-                      <h3>{s.name}</h3>
-                      <p>{s.desc}</p>
-                      <small>{s.positions.join(" / ")}</small>
+                      <h3>{t(s.name)}</h3>
+                      <p>{t(s.desc)}</p>
+                      <small>{s.positions.map(t).join(" / ")}</small>
                     </button>
                   ))}
                 </div>
-                <h2>02　請在心中默念你想詢問的問題。</h2>
+                <h2>{t("02　請在心中默念你想詢問的問題。")}</h2>
                 <label htmlFor="question">
-                  也可以寫下來（選填，最多 300 字）
+                  {t("也可以寫下來（選填，最多 300 字）")}
                 </label>
                 <textarea
                   id="question"
                   maxLength={300}
                   value={question}
                   onChange={(e) => setQuestion(e.target.value)}
-                  placeholder="此刻，有什麼是我需要留意的？"
+                  placeholder={t("此刻，有什麼是我需要留意的？")}
                 />
                 <div className="setup-bottom">
                   <small>
-                    只有按下「保存結果」時，才會將問題存入此瀏覽器。
+                    {t("只有按下「保存結果」時，才會將問題存入此瀏覽器。")}
                   </small>
                   <button className="primary" onClick={prepare}>
-                    專注問題，開始洗牌 ↗
+                    {t("專注問題，開始洗牌 ↗")}
                   </button>
                 </div>
               </section>
@@ -445,8 +504,8 @@ function App() {
                 </p>
                 <h2>
                   {step === "shuffle"
-                    ? "正在洗牌，安放心緒⋯"
-                    : "請將手放在牌上，專注於你的問題。"}
+                    ? t("正在洗牌，安放心緒⋯")
+                    : t("請將手放在牌上，專注於你的問題。")}
                 </h2>
                 <button
                   className={
@@ -454,7 +513,7 @@ function App() {
                     (holding ? "holding" : "") +
                     (step === "shuffle" ? " shuffling" : "")
                   }
-                  aria-label="長按牌堆"
+                  aria-label={t("長按牌堆")}
                   disabled={step === "shuffle"}
                   onPointerDown={(e) => {
                     e.currentTarget.setPointerCapture(e.pointerId);
@@ -471,12 +530,12 @@ function App() {
                   onKeyUp={release}
                   onBlur={release}
                 >
-                  <Art back />
+                  <Art locale={locale} back />
                 </button>
                 <p>
                   {step === "touch"
-                    ? "長按約 1.3 秒；也可用鍵盤按住空白鍵。"
-                    : "78 張牌的順序與正逆位已固定。"}
+                    ? t("長按約 1.3 秒；也可用鍵盤按住空白鍵。")
+                    : t("78 張牌的順序與正逆位已固定。")}
                 </p>
                 {step === "touch" && (
                   <button
@@ -486,11 +545,11 @@ function App() {
                       setStep("roll");
                     }}
                   >
-                    跳過觸牌儀式 →
+                    {t("跳過觸牌儀式 →")}
                   </button>
                 )}
                 {busy && (
-                  <button onClick={finishAnimation}>跳過洗牌動畫</button>
+                  <button onClick={finishAnimation}>{t("跳過洗牌動畫")}</button>
                 )}
               </section>
             )}
@@ -499,68 +558,83 @@ function App() {
                 <section className="draw-table panel">
                   <div className="deck-area">
                     <p className="eyebrow">THE DECK · {deck.length} CARDS</p>
-                    <h2>下一張：{positions[picked.length]}</h2>
+                    <h2>
+                      {t("下一張：")}
+                      {t(positions[picked.length])}
+                    </h2>
                     <div className="deck-stack">
-                      <Art back />
+                      <Art locale={locale} back />
                     </div>
                     {extracting && (
                       <div className="selected-card">
-                        <Art back />
+                        <Art locale={locale} back />
                       </div>
                     )}
-                    <p>由最上方起算，抽出骰子指定的那一張。</p>
+                    <p>{t("由最上方起算，抽出骰子指定的那一張。")}</p>
                     <div className="deck-strip">
                       {deck.map((c, i) => (
                         <span
                           key={c.id}
-                          title={`第 ${i + 1} 張`}
+                          title={
+                            locale === "en"
+                              ? `Position ${i + 1}`
+                              : `第 ${i + 1} 張`
+                          }
                           className={locatedPosition === i + 1 ? "target" : ""}
                         />
                       ))}
                     </div>
                     {locatedPosition !== null && (
                       <small>
-                        定位：第 {locatedPosition} 張 / 目前 {deck.length} 張
+                        {locale === "en"
+                          ? `Position ${locatedPosition} of ${deck.length} cards`
+                          : `定位：第 ${locatedPosition} 張 / 目前 ${deck.length} 張`}
                       </small>
                     )}
                   </div>
                   <div className="dice-area">
                     <p className="eyebrow">LET THE DICE DECIDE</p>
-                    <h2>擲下你的百分骰</h2>
+                    <h2>{t("擲下你的百分骰")}</h2>
                     <div className={"dice-pair " + (busy ? "rolling" : "")}>
                       <div>
                         <div className="die">
                           {digits ? String(digits.tens).padStart(2, "0") : "00"}
                         </div>
-                        <small>十位骰</small>
+                        <small>{t("十位骰")}</small>
                       </div>
                       <span>+</span>
                       <div>
                         <div className="die second">{digits?.ones ?? 0}</div>
-                        <small>個位骰</small>
+                        <small>{t("個位骰")}</small>
                       </div>
                     </div>
                     <p className="dice-total">
-                      {value ? `點數 ${value}` : "等待一個偶然"}
+                      {value
+                        ? locale === "en"
+                          ? `Roll: ${value}`
+                          : `點數 ${value}`
+                        : t("等待一個偶然")}
                     </p>
                     <p>
-                      有效範圍 <strong>1–{deck.length}</strong> · 00 + 0 代表
-                      100
+                      {t("有效範圍")} <strong>1–{deck.length}</strong> ·{" "}
+                      {t("00 + 0 代表")} 100
                     </p>
                     <button className="primary" disabled={busy} onClick={roll}>
                       {busy
-                        ? "骰子滾動中⋯"
+                        ? t("骰子滾動中⋯")
                         : needsReroll
-                          ? "重新擲骰"
-                          : "擲骰，抽取第 " + (picked.length + 1) + " 張"}
+                          ? t("重新擲骰")
+                          : locale === "en"
+                            ? `Roll to draw card ${picked.length + 1}`
+                            : `擲骰，抽取第 ${picked.length + 1} 張`}
                       　◇
                     </button>
                     {busy && (
                       <button className="text-button" onClick={finishAnimation}>
-                        跳過動畫，顯示結果
+                        {t("跳過動畫，顯示結果")}
                       </button>
                     )}
-                    <small>超出範圍即重擲，不換算、不重洗。</small>
+                    <small>{t("超出範圍即重擲，不換算、不重洗。")}</small>
                   </div>
                 </section>
                 <section className="results">
@@ -568,10 +642,10 @@ function App() {
                   {positions.slice(picked.length).map((p, i) => (
                     <article className="empty-card" key={p}>
                       <span>
-                        0{picked.length + i + 1} — {p}
+                        0{picked.length + i + 1} — {t(p)}
                       </span>
                       <div>✧</div>
-                      <p>等待骰子的指引</p>
+                      <p>{t("等待骰子的指引")}</p>
                     </article>
                   ))}
                 </section>
@@ -580,18 +654,18 @@ function App() {
             {step === "result" && reading && (
               <>
                 <p className="question-display">
-                  {reading.question || "留給此刻的指引"}
+                  {reading.question || t("留給此刻的指引")}
                 </p>
                 <div
                   className="reading-tabs"
                   role="group"
-                  aria-label="切換牌陣檢視"
+                  aria-label={t("切換牌陣檢視")}
                 >
                   <button
                     className={focusCard === null ? "tab-active" : ""}
                     onClick={() => setFocusCard(null)}
                   >
-                    牌陣總覽
+                    {t("牌陣總覽")}
                   </button>
                   {reading.cards.map((c, i) => (
                     <button
@@ -602,7 +676,7 @@ function App() {
                         setDetail(true);
                       }}
                     >
-                      {c.position}
+                      {t(c.position)}
                     </button>
                   ))}
                 </div>
@@ -615,7 +689,7 @@ function App() {
                 </section>
                 <div className="result-actions">
                   <button onClick={() => setDetail(!detail)}>
-                    {detail ? "收起詳細解讀" : "查看詳細解讀"}
+                    {detail ? t("收起詳細解讀") : t("查看詳細解讀")}
                   </button>
                   <button
                     className="primary"
@@ -628,28 +702,40 @@ function App() {
                       })
                     }
                   >
-                    {saved ? "已保存 ✓" : "保存結果"}
+                    {saved ? t("已保存 ✓") : t("保存結果")}
                   </button>
-                  <button onClick={() => exportJSON(reading)}>匯出 JSON</button>
-                  <button onClick={() => safe(() => exportPNG(reading))}>
-                    匯出 PNG
+                  <button onClick={() => exportJSON(reading)}>
+                    {t("匯出 JSON")}
                   </button>
-                  <button onClick={start}>重新占卜 ↗</button>
+                  <button
+                    onClick={() => safe(() => exportPNG(reading, locale))}
+                  >
+                    {t("匯出 PNG")}
+                  </button>
+                  <button onClick={start}>{t("重新占卜 ↗")}</button>
                 </div>
                 <details className="audit panel">
                   <summary>
-                    查看擲骰紀錄與抽牌位置（{reading.rolls.length} 次）
+                    {locale === "en"
+                      ? `Roll log and draw positions (${reading.rolls.length} rolls)`
+                      : `查看擲骰紀錄與抽牌位置（${reading.rolls.length} 次）`}
                   </summary>
                   <p>
-                    牌義版本 {reading.meaningVersion} ·{" "}
-                    {new Date(reading.createdAt).toLocaleString("zh-TW")}
+                    {t("牌義版本")} {reading.meaningVersion} ·{" "}
+                    {new Date(reading.createdAt).toLocaleString(
+                      locale === "en" ? "en" : "zh-TW",
+                    )}
                   </p>
                   {reading.rolls.map((r, i) => (
                     <p key={i}>
-                      第 {i + 1} 次：D100 = {r.value}，剩餘 {r.remaining} 張 →{" "}
+                      {locale === "en"
+                        ? `Roll ${i + 1}: D100 = ${r.value}, ${r.remaining} cards left → `
+                        : `第 ${i + 1} 次：D100 = ${r.value}，剩餘 ${r.remaining} 張 → `}
                       {r.accepted
-                        ? `抽取第 ${r.position} 張（卡牌 ID ${r.cardId}）`
-                        : "超出範圍，未移動任何牌"}
+                        ? locale === "en"
+                          ? `Drew position ${r.position} (card ID ${r.cardId})`
+                          : `抽取第 ${r.position} 張（卡牌 ID ${r.cardId}）`
+                        : t("超出範圍，未移動任何牌")}
                     </p>
                   ))}
                 </details>
@@ -661,26 +747,29 @@ function App() {
           <>
             <div className="page-heading">
               <p className="eyebrow">THE TAROT LIBRARY</p>
-              <h1>每張牌，都是一面鏡子。</h1>
+              <h1>{t("每張牌，都是一面鏡子。")}</h1>
               <p>
-                78 張 RWS 架構牌義 · 傳統 RWS 牌面 · 固定牌義 {MEANING_VERSION}
+                {t("78 張 RWS 架構牌義 · 傳統 RWS 牌面 · 固定牌義")}{" "}
+                {MEANING_VERSION}
               </p>
             </div>
             <div className="library-tools">
               <input
-                aria-label="搜尋牌名或關鍵詞"
+                aria-label={t("搜尋牌名或關鍵詞")}
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
-                placeholder="搜尋牌名、英文或關鍵詞⋯"
+                placeholder={t("搜尋牌名、英文或關鍵詞⋯")}
               />
               <select
-                aria-label="篩選牌組"
+                aria-label={t("篩選牌組")}
                 value={filter}
                 onChange={(e) => setFilter(e.target.value)}
               >
                 {["全部", "大阿爾克那", "權杖", "聖杯", "寶劍", "錢幣"].map(
                   (s) => (
-                    <option key={s}>{s}</option>
+                    <option key={s} value={s}>
+                      {t(s)}
+                    </option>
                   ),
                 )}
               </select>
@@ -690,30 +779,47 @@ function App() {
                 .filter(
                   (c) =>
                     (filter === "全部" || c.suit === filter) &&
-                    [c.name, c.en, ...c.upright, ...c.reversed]
+                    [
+                      c.name,
+                      c.en,
+                      ...c.upright,
+                      ...c.reversed,
+                      ...localizeCard(c, locale).upright,
+                      ...localizeCard(c, locale).reversed,
+                    ]
                       .join()
                       .toLowerCase()
                       .includes(query.toLowerCase()),
                 )
-                .map((c) => (
-                  <article className="library-card panel" key={c.id}>
-                    <Art card={c} />
-                    <h3>{c.name}</h3>
-                    <small>
-                      {c.en} · {c.suit} {c.number}
-                    </small>
-                    <p>
-                      <b>正位 · {c.upright.join("、")}</b>
-                      <br />
-                      {c.meaning}
-                    </p>
-                    <p>
-                      <b>逆位 · {c.reversed.join("、")}</b>
-                      <br />
-                      {c.reverseMeaning}
-                    </p>
-                  </article>
-                ))}
+                .map((original) => {
+                  const c = localizeCard(original, locale);
+                  return (
+                    <article className="library-card panel" key={c.id}>
+                      <Art locale={locale} card={original} />
+                      <h3>{c.name}</h3>
+                      <small>
+                        {locale === "en" ? c.suit : c.en + " · " + c.suit}{" "}
+                        {c.number}
+                      </small>
+                      <p>
+                        <b>
+                          {t("正位")} ·{" "}
+                          {c.upright.join(locale === "en" ? ", " : "、")}
+                        </b>
+                        <br />
+                        {c.meaning}
+                      </p>
+                      <p>
+                        <b>
+                          {t("逆位")} ·{" "}
+                          {c.reversed.join(locale === "en" ? ", " : "、")}
+                        </b>
+                        <br />
+                        {c.reverseMeaning}
+                      </p>
+                    </article>
+                  );
+                })}
             </div>
           </>
         )}
@@ -721,23 +827,25 @@ function App() {
           <>
             <div className="page-heading">
               <p className="eyebrow">YOUR PRIVATE JOURNAL</p>
-              <h1>回看，與自己的對話。</h1>
+              <h1>{t("回看，與自己的對話。")}</h1>
               <p>
-                紀錄只保存在此瀏覽器；清除網站資料會移除紀錄，建議另行匯出。
+                {t(
+                  "紀錄只保存在此瀏覽器；清除網站資料會移除紀錄，建議另行匯出。",
+                )}
               </p>
             </div>
             <input
               className="history-search"
-              aria-label="搜尋歷史紀錄"
-              placeholder="搜尋問題、牌陣或牌名⋯"
+              aria-label={t("搜尋歷史紀錄")}
+              placeholder={t("搜尋問題、牌陣或牌名⋯")}
               value={query}
               onChange={(e) => setQuery(e.target.value)}
             />
             {!history.length && (
               <div className="panel ritual">
-                <h2>你的第一頁，還在等你。</h2>
+                <h2>{t("你的第一頁，還在等你。")}</h2>
                 <button className="primary" onClick={start}>
-                  開始一次占卜 ↗
+                  {t("開始一次占卜 ↗")}
                 </button>
               </div>
             )}
@@ -746,22 +854,28 @@ function App() {
                 (
                   r.question +
                   r.spread +
-                  r.cards.map((c) => c.card.name).join()
-                ).includes(query),
+                  t(r.spread) +
+                  r.cards.map((c) => c.card.name + c.card.en).join()
+                )
+                  .toLowerCase()
+                  .includes(query.toLowerCase()),
               )
               .map((r) => (
                 <article key={r.id} className="history-item panel">
                   <div>
                     <small>
-                      {new Date(r.createdAt).toLocaleString("zh-TW")} ·{" "}
-                      {r.spread}
+                      {new Date(r.createdAt).toLocaleString(
+                        locale === "en" ? "en" : "zh-TW",
+                      )}{" "}
+                      · {t(r.spread)}
                     </small>
-                    <h3>{r.question || "留給此刻的指引"}</h3>
+                    <h3>{r.question || t("留給此刻的指引")}</h3>
                     <p>
                       {r.cards
-                        .map(
-                          (c) =>
-                            `${c.position}：${c.card.name}（${c.reversed ? "逆位" : "正位"}）`,
+                        .map((c) =>
+                          locale === "en"
+                            ? `${t(c.position)}: ${c.card.en} (${c.reversed ? t("逆位") : t("正位")})`
+                            : `${c.position}：${c.card.name}（${c.reversed ? "逆位" : "正位"}）`,
                         )
                         .join(" ／ ")}
                     </p>
@@ -784,22 +898,22 @@ function App() {
                         setFocusCard(null);
                       }}
                     >
-                      查看
+                      {t("查看")}
                     </button>
                     <button onClick={() => exportJSON(r)}>JSON</button>
-                    <button onClick={() => safe(() => exportPNG(r))}>
+                    <button onClick={() => safe(() => exportPNG(r, locale))}>
                       PNG
                     </button>
                     <button
                       onClick={() => {
-                        if (confirm("確定刪除此筆占卜紀錄？"))
+                        if (confirm(t("確定刪除此筆占卜紀錄？")))
                           safe(async () => {
                             await deleteReading(r.id);
                             setHistory(await listReadings());
                           });
                       }}
                     >
-                      刪除
+                      {t("刪除")}
                     </button>
                   </div>
                 </article>
@@ -808,12 +922,10 @@ function App() {
         )}
       </main>
       <footer>
-        <span>
-          ✧　DICE TAROT <small>骰塔羅</small>
-        </span>
-        <p>以偶然為引，以自己為答案。</p>
+        <span>✧　DICE TAROT {locale !== "en" && <small>骰塔羅</small>}</span>
+        <p>{t("以偶然為引，以自己為答案。")}</p>
         <small>
-          僅供娛樂、文化體驗與自我反思，不作為醫療、法律或投資決策依據。
+          {t("僅供娛樂、文化體驗與自我反思，不作為醫療、法律或投資決策依據。")}
         </small>
       </footer>
     </>
