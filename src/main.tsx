@@ -3,6 +3,7 @@ import { localizeCard } from "./cardTranslations";
 import { Art } from "./CardArt";
 import React, { useState, useRef, useEffect } from "react";
 import { createRoot } from "react-dom/client";
+import { Analytics } from "@vercel/analytics/react";
 import { cards, MEANING_VERSION } from "./cards";
 import {
   shuffle,
@@ -928,6 +929,7 @@ function App() {
           {t("僅供娛樂、文化體驗與自我反思，不作為醫療、法律或投資決策依據。")}
         </small>
       </footer>
+      <Analytics />
     </>
   );
 }
